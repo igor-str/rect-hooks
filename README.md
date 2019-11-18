@@ -9,7 +9,7 @@ In this tutorial, we'll make a simple CRUD app that can add, update, or delete u
 ```
 git clone
 npm i
-npm start
+npm run start
 ```
 
 

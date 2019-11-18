@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 
 const UserTable = props => (
   <table>
@@ -40,6 +40,6 @@ const UserTable = props => (
       )}
     </tbody>
   </table>
-)
+);
 
 export default UserTable

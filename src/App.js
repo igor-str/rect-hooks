@@ -1,46 +1,40 @@
-import React, { useState, Fragment } from 'react'
-import AddUserForm from './forms/AddUserForm'
-import EditUserForm from './forms/EditUserForm'
-import UserTable from './tables/UserTable'
+import React, { useState, Fragment } from 'react';
+import { usersData } from './data/fakeData';
+import AddUserForm from './forms/AddUserForm';
+import EditUserForm from './forms/EditUserForm';
+import UserTable from './tables/UserTable';
 
 const App = () => {
-	// Data
-	const usersData = [
-		{ id: 1, name: 'Tania', username: 'floppydiskette' },
-		{ id: 2, name: 'Craig', username: 'siliconeidolon' },
-		{ id: 3, name: 'Ben', username: 'benisphere' },
-	]
-
-	const initialFormState = { id: null, name: '', username: '' }
+	const initialFormState = { id: null, name: '', username: '' };
 
 	// Setting state
-	const [ users, setUsers ] = useState(usersData)
-	const [ currentUser, setCurrentUser ] = useState(initialFormState)
-	const [ editing, setEditing ] = useState(false)
+	const [ users, setUsers ] = useState(usersData);
+	const [ currentUser, setCurrentUser ] = useState(initialFormState);
+	const [ editing, setEditing ] = useState(false);
 
 	// CRUD operations
 	const addUser = user => {
-		user.id = users.length + 1
-		setUsers([ ...users, user ])
-	}
+		user.id = users.length + 1;
+		setUsers([ ...users, user ]);
+	};
 
 	const deleteUser = id => {
-		setEditing(false)
+		setEditing(false);
 
-		setUsers(users.filter(user => user.id !== id))
-	}
+		setUsers(users.filter(user => user.id !== id));
+	};
 
 	const updateUser = (id, updatedUser) => {
-		setEditing(false)
+		setEditing(false);
 
-		setUsers(users.map(user => (user.id === id ? updatedUser : user)))
-	}
+		setUsers(users.map(user => (user.id === id ? updatedUser : user)));
+	};
 
 	const editRow = user => {
-		setEditing(true)
+		setEditing(true);
 
-		setCurrentUser({ id: user.id, name: user.name, username: user.username })
-	}
+		setCurrentUser({ id: user.id, name: user.name, username: user.username });
+	};
 
 	return (
 		<div className="container">
@@ -71,6 +65,6 @@ const App = () => {
 			</div>
 		</div>
 	)
-}
+};
 
-export default App
+export default App;

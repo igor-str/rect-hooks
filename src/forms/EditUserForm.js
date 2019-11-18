@@ -1,28 +1,28 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect } from 'react';
 
 const EditUserForm = props => {
-  const [ user, setUser ] = useState(props.currentUser)
+  const [ user, setUser ] = useState(props.currentUser);
 
   useEffect(
     () => {
-      setUser(props.currentUser)
+      setUser(props.currentUser);
     },
     [ props ]
-  )
+  );
   // You can tell React to skip applying an effect if certain values haven’t changed between re-renders. [ props ]
 
   const handleInputChange = event => {
-    const { name, value } = event.target
+    const { name, value } = event.target;
 
-    setUser({ ...user, [name]: value })
-  }
+    setUser({ ...user, [name]: value });
+  };
 
   return (
     <form
       onSubmit={event => {
-        event.preventDefault()
+        event.preventDefault();
 
-        props.updateUser(user.id, user)
+        props.updateUser(user.id, user);
       }}
     >
       <label>Name</label>
@@ -35,6 +35,6 @@ const EditUserForm = props => {
       </button>
     </form>
   )
-}
+};
 
-export default EditUserForm
+export default EditUserForm;
